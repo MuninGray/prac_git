@@ -58,8 +58,6 @@ Sus permisos son:
 
 
 
-(espacio para que pongan lo suyo jeje)
-
 **8. Requerimientos Funcionales**
 - RF1 – Solicitud de afiliación web. El sistema deberá permitir que un interesado complete y envíe un formulario de solicitud de afiliación.
 
@@ -84,8 +82,6 @@ Sus permisos son:
  - RF4.2: El monto del pago debe ser mayor que cero.
  - RF4.3: La fecha del pago no puede ser anterior a la fecha de ingreso del socio ni posterior a la fecha actual.
  - RF4.4: El sistema debe asociar cada pago al administrador que lo registró y almacenar el comprobante correspondiente.
-
-(otro espacio para que pongan sus requerimientos)
 
 **9. Requerimientos No Funcionales**
 
