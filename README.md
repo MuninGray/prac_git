@@ -1,5 +1,5 @@
 # prac_git
-Un repositorio creado para el Ejercicio Colaborativo de GitHub
+Un repositorio creado para el Ejercicio Colaborativo de GitHub por el grupo 3MI
 
 1. **Introducción**
 
