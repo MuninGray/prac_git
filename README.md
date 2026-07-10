@@ -57,56 +57,7 @@ Sus permisos son:
 
 
 
-
-**8. Requerimientos Funcionales**
-- RF1 – Solicitud de afiliación web. El sistema deberá permitir que un interesado complete y envíe un formulario de solicitud de afiliación.
-
- - RF1.1: El sistema debe permitir que cualquier interesado complete el formulario de solicitud sin necesidad de autenticarse previamente.
- - RF1.2: Al recibirse el formulario, el sistema debe crear un registro en la tabla SOLICITUDES con estado inicial "Pendiente".
- - RF1.3: El sistema debe validar que los campos obligatorios estén completos antes de permitir el envío y, en caso de error, mostrar un mensaje claro indicando el campo a corregir.
-
-- RF2 – Gestión del núcleo familiar. El sistema deberá permitir al socio titular administrar los integrantes de su núcleo familiar.
- - RF2.1: El sistema debe permitir asociar personas al núcleo familiar indicando el vínculo correspondiente.
- - RF2.2: El sistema debe permitir vincular un socio adjunto con un socio titular dentro del mismo núcleo.
- - RF2.3: El sistema no debe exigir mayoría de edad a los integrantes del núcleo familiar.
- - RF2.4: El sistema debe impedir guardar registros con datos incompletos e indicar qué información falta.
-
-- RF3 – Asignación de espacios funerarios. El sistema deberá permitir asignar un espacio funerario disponible a un socio aprobado.
- - RF3.1: El sistema debe permitir al administrador asignar un espacio funerario a un socio aprobado.
- - RF3.2: El sistema solo debe permitir asignar espacios de tipo parcela, panteón o nicho.
- - RF3.3: El sistema debe registrar la fecha de asignación del espacio.
- - RF3.4: El sistema no debe permitir asignar un mismo espacio funerario a más de un socio.
-
-- RF4 – Registro de pagos mensuales. El sistema deberá permitir registrar los pagos correspondientes a cada núcleo familiar.
- - RF4.1: El sistema debe permitir registrar el núcleo familiar, el monto abonado y el comprobante del pago.
- - RF4.2: El monto del pago debe ser mayor que cero.
- - RF4.3: La fecha del pago no puede ser anterior a la fecha de ingreso del socio ni posterior a la fecha actual.
- - RF4.4: El sistema debe asociar cada pago al administrador que lo registró y almacenar el comprobante correspondiente.
-
-**9. Requerimientos No Funcionales**
-
-A continuación se detallan los requerimientos no funcionales del sistema:
-
-**RNF-01 – Rendimiento** 
-
-Las operaciones principales del sistema deberán responder en menos de 5 segundos en condiciones normales de uso.
-
-**RNF-02 – Concurrencia** 
-El sistema deberá soportar al menos 50 usuarios conectados al mismo tiempo sin degradar significativamente su rendimiento.
-
-**RNF-03 – Seguridad** 
-El sistema deberá implementar autenticación de doble factor para los usuarios que tengan esta opción habilitada.
-
-**RNF-04 – Respaldo de información** 
-El sistema deberá realizar una copia de seguridad de la información cada 24 horas.
-
-**RNF-05 – Usabilidad** 
-Un usuario sin capacitación previa deberá poder aprender a utilizar el formulario de afiliación en un tiempo menor a 10 minutos.
-
-**RNF-06 – Manejo de errores** 
-El sistema deberá mostrar mensajes de error claros y entendibles para el usuario, evitando mensajes técnicos o provenientes de la base de datos.
-
-Entorno operativo:
+**5. Entorno Operativo**
 
     Plataforma de hardware:
 
@@ -141,7 +92,7 @@ Entorno operativo:
         - Conexión a internet estable tanto del lado del servidor como del cliente, con comunicación cifrada (HTTPS) para proteger los datos personales y de pago transmitidos, en concordancia con el requerimiento no funcional de seguridad lógica y de datos.
 
 
-Reglas de negocio:
+**6. Reglas de Negocio**
 
     - Las siguientes reglas de negocio expresan políticas operativas, comerciales y de control que la empresa aplica y que el software debe respetar de forma transversal, independientemente del módulo o funcionalidad que se esté ejecutando:
 
@@ -164,25 +115,26 @@ Reglas de negocio:
     - Si el campo 2FA está habilitado para un usuario en SYS_LOG, no se permitirá iniciar sesión sin validar el segundo factor de autenticación (RNE5).
 
     - Un espacio funerario sólo puede asignarse a un socio si se encuentra disponible; no se permite la doble asignación simultánea de un mismo espacio.
-6. Requerimientos de Interfaces Externas
-6.1 Interfaz de Usuario (UI)
+    
+**7. Requerimientos de interfaces externas**
+7.1 Interfaz de Usuario (UI)
 Formularios Web Públicos: El sistema dispondrá de un formulario web de acceso público y optimizado para el perfil Interesado, permitiendo la carga ágil de datos de la entidad SOLICITUD. Contará con validaciones en tiempo real para evitar envíos con campos obligatorios vacíos o tasas de error altas.  
 Portal de Socios: Interfaz privada y autenticada mediante contraseña (login_us) para los perfiles de Socio Titular y Adjunto. Permitirá una navegación intuitiva para la consulta del estado de cuenta (SOCIOS, PAGOS) y la edición autogestionada del núcleo familiar (NUCLEAN, INTEGRAN).  
 Panel de Administración (Backoffice): Interfaz avanzada y de alta seguridad exclusiva para el perfil Administrador. Diseñada mediante tablas dinámicas y paneles operativos dedicados a la evaluación de solicitudes, asignación de espacios funerarios en el cementerio y registro manual de pagos.  
 
-6.2 Interfaz de HardwareDispositivos de Entrada/Salida: El sistema operará a través de periféricos estándar (teclado, mouse, monitores o pantallas móviles) para la interacción con los formularios y paneles de gestión.  Dispositivos de Impresión: Compatibilidad con impresoras estándar de oficina y de dispositivos móviles para la salida física del comprobante único generado tras el registro de cada pago mensual (comp).  
+7.2 Interfaz de HardwareDispositivos de Entrada/Salida: El sistema operará a través de periféricos estándar (teclado, mouse, monitores o pantallas móviles) para la interacción con los formularios y paneles de gestión.  Dispositivos de Impresión: Compatibilidad con impresoras estándar de oficina y de dispositivos móviles para la salida física del comprobante único generado tras el registro de cada pago mensual (comp).  
 Soporte de Hardware Especializado: No se requiere interacción con hardware crítico o especializado en el cementerio ni en la sede administrativa. Toda la operación se gestionará mediante terminales de cómputo convencionales.  
 
-6.3 Interfaz de Software
+7.3 Interfaz de Software
 Entorno de Ejecución: El núcleo del sistema estará desarrollado y se ejecutará sobre el intérprete de Python.  Gestor de Base de Datos (DBMS): Interfaz de comunicación directa con el motor de base de datos relacional para dar soporte al modelo de datos definido en el DER (organizado bajo las reglas de la Tercera Forma Normal). El software interactuará con las 8 tablas lógicas identificadas (ESPACIO_FUNERARIA, PERSONAS, SOCIOS, NUCLEAN, ADMINISTRADORES, SOLICITUDES, PAGOS, SYS_LOG).  
 Servicio de Correo Electrónico (SMTP): Conexión con un servidor externo de mensajería (o API de correo) para el disparo automático de correos electrónicos de confirmación a los interesados tras registrar exitosamente una solicitud en estado "Pendiente".  
 
-6.4 Interfaz de Comunicaciones
+7.4 Interfaz de Comunicaciones
 Protocolo de Red Seguro: Toda transferencia de datos entre los clientes (interesados, socios y administradores) y el servidor centralizado se realizará obligatoriamente bajo el protocolo seguro HTTPS/TLS, garantizando el cifrado de datos en tránsito.  
 Protocolo de Autenticación de Doble Factor (2FA): Interfaz de comunicación con módulos de seguridad encargados de exigir, registrar y validar el segundo factor de autenticación previo al inicio de sesión. Ningún inicio de sesión prosperará en el sistema sin la respuesta exitosa de esta interfaz.  
 Bitácora del Sistema: Interfaz interna de comunicación con la tabla SYS_LOG para almacenar en tiempo real las marcas temporales de éxito o fallo de autenticación de los usuarios (fec_hor_ent, fec_hor_sal).  
 
-Glosario
+**Glosario**
 ESRE
 Especificación de Requerimientos de Software, documento que describe formalmente las funciones, restricciones y características que debe cumplir el sistema.
 
@@ -245,6 +197,7 @@ Consulta Externa (External Query): transacción que recupera datos sin modificar
 
 EO
 Salida Externa (External Output): transacción que genera datos de salida con lógica de procesamiento adicional.
+
 
 
 Requerimientos funcionales
@@ -348,3 +301,51 @@ Usabilidad
 RNF8: El tiempo de aprendizaje del sistema por parte de un Interesado sin conocimientos técnicos previos deberá ser menor a 10 minutos para completar el formulario de afiliación.
 RNF9: La tasa de errores cometidos por el usuario al completar el formulario de solicitud deberá ser menor al 5% de los intentos totales.
 RNF10: El sistema debe proporcionar mensajes de error informativos y orientados al usuario final, indicando claramente el motivo del error y cómo corregirlo (por ejemplo, "el monto debe ser mayor a cero" en lugar de un error genérico).
+
+**8. Requerimientos Funcionales**
+- RF1 – Solicitud de afiliación web. El sistema deberá permitir que un interesado complete y envíe un formulario de solicitud de afiliación.
+
+ - RF1.1: El sistema debe permitir que cualquier interesado complete el formulario de solicitud sin necesidad de autenticarse previamente.
+ - RF1.2: Al recibirse el formulario, el sistema debe crear un registro en la tabla SOLICITUDES con estado inicial "Pendiente".
+ - RF1.3: El sistema debe validar que los campos obligatorios estén completos antes de permitir el envío y, en caso de error, mostrar un mensaje claro indicando el campo a corregir.
+
+- RF2 – Gestión del núcleo familiar. El sistema deberá permitir al socio titular administrar los integrantes de su núcleo familiar.
+ - RF2.1: El sistema debe permitir asociar personas al núcleo familiar indicando el vínculo correspondiente.
+ - RF2.2: El sistema debe permitir vincular un socio adjunto con un socio titular dentro del mismo núcleo.
+ - RF2.3: El sistema no debe exigir mayoría de edad a los integrantes del núcleo familiar.
+ - RF2.4: El sistema debe impedir guardar registros con datos incompletos e indicar qué información falta.
+
+- RF3 – Asignación de espacios funerarios. El sistema deberá permitir asignar un espacio funerario disponible a un socio aprobado.
+ - RF3.1: El sistema debe permitir al administrador asignar un espacio funerario a un socio aprobado.
+ - RF3.2: El sistema solo debe permitir asignar espacios de tipo parcela, panteón o nicho.
+ - RF3.3: El sistema debe registrar la fecha de asignación del espacio.
+ - RF3.4: El sistema no debe permitir asignar un mismo espacio funerario a más de un socio.
+
+- RF4 – Registro de pagos mensuales. El sistema deberá permitir registrar los pagos correspondientes a cada núcleo familiar.
+ - RF4.1: El sistema debe permitir registrar el núcleo familiar, el monto abonado y el comprobante del pago.
+ - RF4.2: El monto del pago debe ser mayor que cero.
+ - RF4.3: La fecha del pago no puede ser anterior a la fecha de ingreso del socio ni posterior a la fecha actual.
+ - RF4.4: El sistema debe asociar cada pago al administrador que lo registró y almacenar el comprobante correspondiente.
+
+**9. Requerimientos No Funcionales**
+
+A continuación se detallan los requerimientos no funcionales del sistema:
+
+**RNF-01 – Rendimiento** 
+
+Las operaciones principales del sistema deberán responder en menos de 5 segundos en condiciones normales de uso.
+
+**RNF-02 – Concurrencia** 
+El sistema deberá soportar al menos 50 usuarios conectados al mismo tiempo sin degradar significativamente su rendimiento.
+
+**RNF-03 – Seguridad** 
+El sistema deberá implementar autenticación de doble factor para los usuarios que tengan esta opción habilitada.
+
+**RNF-04 – Respaldo de información** 
+El sistema deberá realizar una copia de seguridad de la información cada 24 horas.
+
+**RNF-05 – Usabilidad** 
+Un usuario sin capacitación previa deberá poder aprender a utilizar el formulario de afiliación en un tiempo menor a 10 minutos.
+
+**RNF-06 – Manejo de errores** 
+El sistema deberá mostrar mensajes de error claros y entendibles para el usuario, evitando mensajes técnicos o provenientes de la base de datos.
