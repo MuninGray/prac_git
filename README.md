@@ -1,5 +1,7 @@
 # prac_git
-Un repositorio creado para el Ejercicio Colaborativo de GitHub, hecho por Lucia Carvallo, Martin Heredia y Lorena Pensatori.
+
+Un repositorio creado para el Ejercicio Colaborativo de GitHub, hecho por Lucia Carvallo, Martin Heredia y Lorena Pensatori por el grupo 3MI.
+
 
 1. **Introducción**
 
